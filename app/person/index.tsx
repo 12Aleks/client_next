@@ -14,7 +14,7 @@ import PersonItem from "@/app/person/PersonItem";
 
 type PersonForm = z.infer<typeof personSchema>;
 export type Person = {
-    id: number;
+    _id: string;
     firstName: string;
     lastName: string;
     age: number };
@@ -49,7 +49,7 @@ export default function Person() {
         reset();
     };
 
-    const handleDelete = async (id: number) => {
+    const handleDelete = async (id: string) => {
         await removePerson(id);
     };
 
@@ -78,7 +78,7 @@ export default function Person() {
             ) : (
                 <ul className="m-5">
                     {people?.map((p: Person) => (
-                        <PersonItem key={p.id} person={p} handleDelete={handleDelete} />
+                        <PersonItem key={p._id} person={p} handleDelete={handleDelete} />
                     ))}
                 </ul>
             )}

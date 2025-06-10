@@ -3,7 +3,7 @@ import { Person } from "@/app/person/index";
 
 type PersonItemProps = {
     person: Person;
-    handleDelete: (id: number) => void;
+    handleDelete: (_id: string) => void;
 };
 
 const PersonItem: React.FC<PersonItemProps> = ({ person, handleDelete }) => {
@@ -12,7 +12,7 @@ const PersonItem: React.FC<PersonItemProps> = ({ person, handleDelete }) => {
             {person.firstName} {person.lastName} ({person.age}){" "}
             <button
                 className="ms-10 bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 border border-red-700 rounded"
-                onClick={() => handleDelete(person.id)}
+                onClick={() => handleDelete(person._id)}
             >
                 Delete
             </button>

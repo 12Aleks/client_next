@@ -18,7 +18,10 @@ export const addPerson = async (person: {
     return res.json();
 };
 
-export const deletePerson = async (id: number) => {
+export const deletePerson = async (id: string) => {
+    if (!id) {
+        throw new Error("Invalid id provided");
+    }
     const res = await fetch(`http://localhost:5000/people/${id}`, {
         method: "DELETE",
     });
